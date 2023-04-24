@@ -74,12 +74,11 @@ public class GameManagerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
-        GameObject instance = Instantiate(
-            playerPrefab,
-            new Vector3(0, 0, 0),
-            Quaternion.identity
-        );
+        //GameObject instance = Instantiate(
+        //    playerPrefab,
+        //    new Vector3(0, 0, 0),
+        //    Quaternion.identity
+        //);
 
         //配列の実体の作成と初期化
         map = new int[,] {
@@ -89,16 +88,24 @@ public class GameManagerScript : MonoBehaviour
         };
 
         //文字の出力
-        string debugText = "";
+        //string debugText = "";
         for (int y = 0; y < map.GetLength(0); y++)
         {
             for (int x = 0; x < map.GetLength(1); x++)
             {
-                debugText += map[y, x].ToString() + ",";
+                if (map[y, x] == 1)
+                {
+                    GameObject instance = Instantiate(
+                        playerPrefab,
+                        new Vector3(x, y, 0),
+                        Quaternion.identity
+                        );
+                }
+                //debugText += map[y, x].ToString() + ",";
             }
-            debugText += "\n";//改行
+            //debugText += "\n";//改行
         }
-        Debug.Log(debugText);
+        //Debug.Log(debugText);
     }
 
     // Update is called once per frame
