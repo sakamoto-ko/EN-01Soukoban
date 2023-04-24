@@ -113,7 +113,7 @@ public class GameManagerScript : MonoBehaviour
             int playerIndex = GetPlayerIndex();
 
             //•¶š‚Ìo—Í
-            PrintArray();
+           // PrintArray();
         }
     }
 }
